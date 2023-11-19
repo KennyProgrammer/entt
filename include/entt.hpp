@@ -1,3 +1,5 @@
+#pragma once
+
 // #include "config/config.h"
 #ifndef ENTT_CONFIG_CONFIG_H
 #define ENTT_CONFIG_CONFIG_H
