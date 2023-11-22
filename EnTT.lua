@@ -5,12 +5,12 @@
 
 -- ImGuizmo EnTT Project
 project "EnTT"
-	kind "StaticLib"
-	language "C++"
-	cppdialect "C++17"
-
-	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
-	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+	kind          "StaticLib"
+	language      "C++"
+	cppdialect    "C++17"
+	staticruntime "On"
+	targetdir     ("%{ForceDir.BinLib}/" .. BuildDir .. "/%{prj.name}/lib")
+	objdir        ("%{ForceDir.BinLib}/" .. BuildDir .. "/%{prj.name}/obj")
 
 	files {
 		"include/**.hpp",
@@ -18,18 +18,15 @@ project "EnTT"
 	}
 	
 	includedirs {
-		"include",
-		"src"
+		"include"
 	}
 
 	filter "system:windows"
 		systemversion "latest"
-		staticruntime "On"
 		
 	filter "system:linux"
 		pic "On"
 		systemversion "latest"
-		staticruntime "On"
 
 	filter "configurations:Debug"
 		runtime "Debug"
